@@ -1,3 +1,4 @@
+package binarytreepackage;
 import java.util.Scanner;
 
 
