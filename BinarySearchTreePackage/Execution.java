@@ -16,11 +16,15 @@ public class Execution {
                 nodes=s.nextInt();
                 b.insert(nodes);
             }
-        }catch(Exception e){e.printStackTrace();}
+        
 
-        b.minVal();
-        b.maxVal();
-        b.preorder();
-
+        //b.minVal();
+        //b.maxVal();
+        //b.preorder();
+        
+        System.out.println("Enter Element you want to search : ");
+        int key = s.nextInt();
+        b.search(key);
+    }catch(Exception e){e.printStackTrace();}
     }
 }

@@ -53,4 +53,23 @@ public class BST {
         preorder(root.left);
         preorder(root.right);
     }
+
+    boolean search(int data){
+        root = research(root,data);
+        if(root !=null)
+            return true;
+        else
+            return false;
+    }
+    Node research(Node root,int data){
+        if(root == null || root.data == data){
+            return root;
+        }
+        if(root.data > data){
+            return research(root.left, data);
+        }
+        else{
+            return research(root.right, data);
+        }
+    }
 }
