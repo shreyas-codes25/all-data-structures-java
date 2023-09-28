@@ -1,3 +1,4 @@
+package binarytreepackage;
 public class Node{
     int data;
     Node right,left=null;
