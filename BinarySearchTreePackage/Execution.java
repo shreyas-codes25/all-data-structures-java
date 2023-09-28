@@ -24,7 +24,11 @@ public class Execution {
         
         System.out.println("Enter Element you want to search : ");
         int key = s.nextInt();
-        b.search(key);
+        boolean res = b.search(key);
+        if(res)
+            System.out.println("Item present");
+        else    
+            System.out.println("Item not found");
     }catch(Exception e){e.printStackTrace();}
     }
 }
