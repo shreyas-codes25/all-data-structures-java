@@ -10,6 +10,13 @@ public class Main {
     //new DeciToBi(324);
     //new productOfArray(A, A.length);
     //new addNumbers(10);
-    new FibMethod(35);
+    //new FibMethod(35);
+    //new strReverse("JavaPoint");
+    //new ISPalindrome("amanaplanacanalpandemonium");
+    //new CapWordFirst("shreyas");
+    //new ReturnFirstCap("shreyAs");
     }
 }
+
+
+  
