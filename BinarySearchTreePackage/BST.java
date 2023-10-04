@@ -55,8 +55,9 @@ public class BST {
     }
 
     boolean search(int data){
-        root = research(root,data);
-        if(root !=null)
+        Node rootinside = root;
+        rootinside = research(root,data);
+        if(rootinside !=null)
             return true;
         else
             return false;

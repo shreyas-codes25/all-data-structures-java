@@ -18,8 +18,8 @@ public class Execution {
             }
         
 
-        //b.minVal();
-        //b.maxVal();
+        b.minVal();
+        b.maxVal();
         //b.preorder();
         
         System.out.println("Enter Element you want to search : ");
