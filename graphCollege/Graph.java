@@ -14,8 +14,7 @@ public class Graph {
         this.V = v;  // Set the number of vertices
         
         
-        adj =new LinkedList[V];
-        // Create an array of LinkedLists for adjacency lists
+        adj =new LinkedList[V];// Create an array of LinkedLists for adjacency lists
 
         // Initialize each adjacency list
         for (int i = 0; i < v; i++) {
