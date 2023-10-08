@@ -1,36 +1,46 @@
 package depthFirstTraversalPackage;
 import java.util.LinkedList;
-public class Graph {
-    private int V;
-    private LinkedList<Integer>[] adj;
-
+class Graph {
+    private int V;                              //number of nodes
+ 
+    private LinkedList<Integer> adj[];              //adjacency list
     @SuppressWarnings("unchecked")
-    public Graph(int v){
-        this.V = v;
-        adj = new LinkedList[V];
-        for(int i=0;i<V;i++){
-            adj[i] = new LinkedList<Integer>();
-        }
+    public Graph(int v)
+    {
+        V = v;
+        adj = new LinkedList[v];
+        
+        for (int i = 0; i < v; ++i){
+
+          adj[i] = new LinkedList<Integer>();
+    	}
     }
 
-    void addEdge(int v,int w){
-        adj[v].add(w);
+    void addEdge(int v, int w)
+    {
+        adj[v].add(w);                              //adding an edge to the adjacency list (edges are bidirectional in this example)
     }
-    void dfsReq(int v,boolean nodes[]){
-        nodes[v]=true;
-        System.out.print(v+" ");
-        int a=0;
-        for(int i=0;i<adj[v].size();i++){
-            a = adj[v].get(i);
-            if(!nodes[a]){
-                nodes[a]=true;
-                dfsReq(a, nodes);
-            }
-        }
+ 
+    void DFSUtil(int vertex, boolean nodes[])
+    {
+        nodes[vertex] = true;                         //mark the node as explored
+        System.out.print(vertex + " ");
+        int a = 0;
+ 
+        for (int i = 0; i < adj[vertex].size(); i++)  //iterate through the linked list and then propagate to the next few nodes
+            {
+                a = adj[vertex].get(i);
+                if (!nodes[a])                    //only propagate to next nodes which haven't been explored
+                {
+                    DFSUtil(a, nodes);
+                }
+            }  
     }
-    void dfs(int v){
-        boolean visited[] = new boolean[v];
-        dfsReq(v, visited);
+
+    void DFS(int v)
+    {
+        boolean already[] = new boolean[V];             //initialize a new boolean array to store the details of explored nodes
+        DFSUtil(v, already);
     }
     
     

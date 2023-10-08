@@ -15,6 +15,6 @@ public class Main{
         g.addEdge(4, 3);
         g.addEdge(5, 3);
         System.out.println("Following is depth first traversal");
-        g.dfs(0);
+        g.DFS(0);
     }
 }
