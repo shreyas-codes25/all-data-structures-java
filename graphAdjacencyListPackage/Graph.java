@@ -20,12 +20,17 @@ public class Graph {
         StringBuffer str = new StringBuffer();
 
         for(int i=0;i<nodelist.size();i++){
+
             str.append(nodelist.get(i).name+"-->");
+
             for(int j=0;j<nodelist.get(i).neighbour.size();j++){
+
                 if(j==nodelist.get(i).neighbour.size()-1){
+
                     str.append((nodelist.get(i).neighbour.get(j).name));
                 }
                 else{
+                    
                     str.append((nodelist.get(i).neighbour.get(j).name)+"-->");
                 }
             }
