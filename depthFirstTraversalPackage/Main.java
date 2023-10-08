@@ -1,6 +1,6 @@
 package depthFirstTraversalPackage;
 
-public class Main {
+public class Main{
     public static void main(String agrs[]){
         Graph g= new Graph(6);
 
