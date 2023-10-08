@@ -1,4 +1,4 @@
-package graphCollege;
+package breadthFirstTraversalPackage;
 
 public class Main {
     public static void main(String agrs[]){

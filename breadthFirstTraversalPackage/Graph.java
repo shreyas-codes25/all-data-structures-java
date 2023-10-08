@@ -1,4 +1,4 @@
-package graphCollege;
+package breadthFirstTraversalPackage;
 import java.util.LinkedList;
 import java.util.Queue;
 
