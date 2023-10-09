@@ -17,7 +17,7 @@ public class Main {
         g.addEdge(5, 4);
         g.addEdge(5, 3);
         System.out.println("Traversal");
-        g.bfs(0);
+        g.BFS(0);
     }
     
 }
