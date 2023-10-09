@@ -1,55 +1,51 @@
 package breadthFirstTraversalPackage;
+
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Graph {
-    private int V;                // Number of vertices in the graph
-    
-    private LinkedList<Integer> adj[];  // Adjacency list to store graph edges
-    private Queue<Integer> queue;  // Queue for BFS traversal
+    private int V;                       // Number of vertices in the graph
+    private LinkedList<Integer> adj[];    // An array to store lists of adjacent vertices for each vertex
+    private Queue<Integer> queue;         // A queue to help with breadth-first traversal
 
-    // Constructor to initialize the graph with 'v' vertices
     @SuppressWarnings("unchecked")
     public Graph(int v) {
-        this.V = v;  // Set the number of vertices
-        
-        
-        adj =new LinkedList[V];// Create an array of LinkedLists for adjacency lists
+        this.V = v;                       // Initialize the number of vertices
+        adj = new LinkedList[V];           // Create an array to store adjacency lists for each vertex
 
-        // Initialize each adjacency list
-        for (int i = 0; i < v; i++) {
-            adj[i] = new LinkedList<Integer>();
+        for (int i = 0; i < V; i++) {
+            adj[i] = new LinkedList<Integer>();  // Initialize each adjacency list
         }
-
-        queue = new LinkedList<Integer>();  // Initialize the queue for BFS traversal
+        queue = new LinkedList<Integer>();  // Initialize the queue for BFS
     }
 
-    // Function to add an edge to the graph
-    void addEdge(int v, int w) {
-        adj[v].add(w);  // Add vertex 'w' to the adjacency list of vertex 'v'
+    public void addEdge(int v, int w) {
+        adj[v].add(w);                     // Add an edge between vertices v and w
     }
 
-    // Function to perform Breadth-First Search (BFS) traversal starting from a given 'startnode'
-    void bfs(int startnode) {
-        int travelNode = 0;  // Variable to track the node being traversed
-        boolean visitedNodes[] = new boolean[V];  // Array to track visited nodes
-        int a = 0;  // Temporary variable for storing adjacent nodes
+    void BFS(int startnode) {
+        int travelnode = 0;                // Variable to keep track of the current node being visited
 
-        visitedNodes[startnode] = true;  // Mark the 'startnode' as visited
-        queue.add(startnode);  // Add 'startnode' to the queue for traversal
+        boolean visited[] = new boolean[V]; // An array to keep track of visited nodes
 
-        while (!queue.isEmpty()) {  // Continue traversal until the queue is empty
-            travelNode = queue.poll();  // Get the next node from the queue
-            System.out.print(travelNode + " ");  // Print the traversed node
+        int a = 0;                          // Temporary variable for neighbors
 
-            // Iterate through the adjacent nodes of the current node
-            for (int i = 0; i < adj[travelNode].size(); i++) {
-                a = adj[travelNode].get(i);  // Get the adjacent node
+        queue.add(startnode);              // Add the starting node to the queue
 
-                // If the adjacent node has not been visited, mark it as visited and add it to the queue
-                if (!visitedNodes[a]) {
-                    visitedNodes[a] = true;
-                    queue.add(a);
+        while (!queue.isEmpty()) {
+            travelnode = queue.poll();     // Remove the first node from the queue and visit it
+            System.out.print(travelnode + " ");
+
+            /* 
+               This loop is used to visit all neighbors of the current node (represented by travelnode).
+               It iterates through each neighbor (house connected by a road) and checks if it has been visited before.
+               If a neighbor hasn't been visited, it marks it as visited and adds it to the queue for future visits.
+            */
+            for (int i = 0; i < adj[travelnode].size(); i++) {
+                a = adj[travelnode].get(i); // Get the neighbors of the current node
+                if (!visited[a]) {
+                    visited[a] = true;      // Mark the neighbor as visited
+                    queue.add(a);           // Add the neighbor to the queue for future visits
                 }
             }
         }
