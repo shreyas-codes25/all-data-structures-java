@@ -18,7 +18,8 @@ class Graph {
 
     void addEdge(int v, int w)
     {
-        adj[v].add(w);                              //adding an edge to the adjacency list (edges are bidirectional in this example)
+        adj[v].add(w);      
+        adj[w].add(w);                        //adding an edge to the adjacency list (edges are bidirectional in this example)
     }
  
     void DFSUtil(int vertex, boolean nodes[])
