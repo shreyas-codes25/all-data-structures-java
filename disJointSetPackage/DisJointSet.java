@@ -1,4 +1,4 @@
-package disJointSet;
+package disJointSetPackage;
 
 import java.util.ArrayList;
 public class DisJointSet {

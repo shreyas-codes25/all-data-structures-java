@@ -1,4 +1,4 @@
-package disJointSet;
+package disJointSetPackage;
 
 public class UndirectedEdge {
     public WeightedNode first;

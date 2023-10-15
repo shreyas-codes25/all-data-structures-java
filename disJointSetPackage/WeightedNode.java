@@ -1,4 +1,4 @@
-package disJointSet;
+package disJointSetPackage;
 import java.util.*;
 
 public class WeightedNode implements Comparable<WeightedNode> {

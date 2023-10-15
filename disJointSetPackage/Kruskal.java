@@ -1,4 +1,4 @@
-package disJointSet;
+package disJointSetPackage;
 import java.util.*;
 public class Kruskal {
     ArrayList<WeightedNode> nodelist = new ArrayList<WeightedNode>();
@@ -30,5 +30,16 @@ public class Kruskal {
             
         };
         Collections.sort(unedge,comparator);
+        int cost = 0;
+        for(UndirectedEdge edge :unedge){
+            WeightedNode first = edge.first;
+            WeightedNode second = edge.second;
+            if(!DisJointSet.findSet(first).equals(DisJointSet.findSet(second))){
+                DisJointSet.union(first, second);
+                cost+=edge.weight;
+                System.out.println("Taken"+edge);
+            }
+        }
+        System.out.println("Total cost="+cost);
     }
 }
