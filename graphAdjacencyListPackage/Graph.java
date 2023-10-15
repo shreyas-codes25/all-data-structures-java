@@ -1,5 +1,5 @@
 package graphAdjacencyListPackage;
-
+import java.util.Stack;
 import java.util.ArrayList;
 import java.util.LinkedList;
 public class Graph {
@@ -32,7 +32,7 @@ public class Graph {
         }
         return str.toString();
     }
-
+    //breath first traversal methods
     void bfsvisit(GNode node){
         LinkedList<GNode> queue = new LinkedList<GNode>();
         queue.add(node);
@@ -51,7 +51,7 @@ public class Graph {
         }
        
     }
-
+    //method call
     void bfs(){
         for(GNode node:nodelist){
             if(!node.isvisited){
@@ -59,4 +59,32 @@ public class Graph {
             }
         }                
     }
+
+    //depth first traversal
+    void dfsVisited(GNode node){
+        Stack<GNode> stack = new Stack<GNode>();
+        stack.push(node);
+        while(!stack.isEmpty()){
+            GNode curr = stack.pop();
+            curr.isvisited=true;
+            System.out.print(curr.name+" ");
+            for(GNode neighbour:curr.neighbour){
+                if(!neighbour.isvisited){
+                    stack.push(neighbour);
+                    neighbour.isvisited=true;
+                }
+            }
+        }
+    }
+
+    void dfs(){
+        for(GNode node :nodelist){
+            if(!node.isvisited){
+                dfsVisited(node);
+            }
+        }
+
+    }
+
+
 }

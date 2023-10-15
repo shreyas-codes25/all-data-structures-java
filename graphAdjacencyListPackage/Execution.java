@@ -20,7 +20,10 @@ public class Execution {
         g.addEdge(3, 4);
 
         System.out.println(g.toString());
+        System.out.println("BFS Traversal is \n");
         g.bfs();
+        System.out.println("DFS Traversal is \n");
+        g.dfs();
     }
     
 }
