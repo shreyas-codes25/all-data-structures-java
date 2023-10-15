@@ -17,8 +17,10 @@ public class Exec {
         g.addEdge(2, 3);
         g.addEdge(3, 4);
         System.out.println(g.toString());
-        
-        g.bfs();
+        //System.out.println("BFS Traversal is \n");
+        //g.bfs();
+        System.out.println("\nDFS Traversal is \n");
+        g.dfs();
     }
     
 }

@@ -1,4 +1,5 @@
 package graphAdjacencyMatrixPackage;
+import java.util.Stack;
 import java.util.ArrayList;
 import java.util.LinkedList;
 public class Graph {
@@ -36,7 +37,7 @@ public class Graph {
         return str.toString();
 
     }
-
+    //get next method to get the adjacent neighbours of the current node, used in both bfs and dfs
     public ArrayList<GNode> getNext(GNode node){
         ArrayList<GNode> nextneg = new ArrayList<GNode>();
         int nodeindex=node.weight;
@@ -48,7 +49,7 @@ public class Graph {
         }
         return nextneg;
     }
-
+    //breath first traversal
     void bfsVisit(GNode node){
         LinkedList<GNode> queue=new LinkedList<GNode>();
         queue.add(node);
@@ -66,11 +67,39 @@ public class Graph {
             }
         }
     }
-
+    //method call
     public void bfs(){
         for(GNode node:nodelist){
             if(!node.isvisited){
                 bfsVisit(node);
+            }
+        }
+    }
+
+
+    //dfs traversal
+
+    void dfsvisit(GNode node){
+        Stack<GNode> s = new Stack<GNode>();
+        s.push(node);
+        while(!s.isEmpty()){
+            GNode curr = s.pop();
+            curr.isvisited=true;
+            System.out.print(curr.vertex+" ");
+            ArrayList<GNode> next = getNext(curr);
+            for(GNode nextneg:next){
+                if(!nextneg.isvisited){
+                s.push(nextneg);
+                nextneg.isvisited=true;
+                }
+            }
+        }
+    }
+    //method call for dfs
+    void dfs(){
+        for(GNode node :nodelist){
+            if(!node.isvisited){
+                dfsvisit(node);
             }
         }
     }
