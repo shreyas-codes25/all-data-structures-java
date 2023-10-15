@@ -20,6 +20,7 @@ public class Execution {
         g.addEdge(3, 4);
 
         System.out.println(g.toString());
+        g.bfs();
     }
     
 }
