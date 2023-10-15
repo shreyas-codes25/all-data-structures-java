@@ -1,6 +1,6 @@
 package graphAdjacencyMatrixPackage;
 import java.util.ArrayList;
-
+import java.util.LinkedList;
 public class Graph {
     ArrayList<GNode> nodelist = new ArrayList<GNode>();
     int adj[][];
@@ -14,6 +14,8 @@ public class Graph {
         adj[i][j]=1;
         adj[j][i]=1;
     }
+
+    
 
     public String toString(){
         StringBuffer str = new StringBuffer();
@@ -35,6 +37,42 @@ public class Graph {
 
     }
 
+    public ArrayList<GNode> getNext(GNode node){
+        ArrayList<GNode> nextneg = new ArrayList<GNode>();
+        int nodeindex=node.weight;
 
+        for(int i=0;i<adj.length;i++){
+            if(adj[nodeindex][i]==1){
+                nextneg.add(nodelist.get(i));
+            }
+        }
+        return nextneg;
+    }
+
+    void bfsVisit(GNode node){
+        LinkedList<GNode> queue=new LinkedList<GNode>();
+        queue.add(node);
+
+        while(!queue.isEmpty()){
+            GNode curr = queue.remove(0);
+            curr.isvisited=true;
+            System.out.print(curr.vertex+" ");
+            ArrayList<GNode> nextneg=getNext(curr);
+            for(GNode next: nextneg){
+                if(!next.isvisited){
+                    next.isvisited=true;
+                    queue.add(next);
+                }
+            }
+        }
+    }
+
+    public void bfs(){
+        for(GNode node:nodelist){
+            if(!node.isvisited){
+                bfsVisit(node);
+            }
+        }
+    }
 
 }
