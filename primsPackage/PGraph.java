@@ -54,6 +54,7 @@ class PGraph {
       selected[y] = true;
       no_edge++;
     }
+    System.out.println("total edges used are : "+no_edge);
   }
 
 }
