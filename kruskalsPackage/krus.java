@@ -2,61 +2,58 @@ package kruskalsPackage;
 
 public class krus{
     static int V;
-    static int parent[];
+    int parent[];
     int edges[][];
-    int INF=Integer.MAX_VALUE;
+    static int INF=Integer.MAX_VALUE;
 
     public krus(int vertex,int weights[][]){
         krus.V=vertex;
-        this.edges=weights;
-        parent = new int[V];
+        edges=weights;
+        parent=new int[V];
     }
-    static int find(int i){
+
+    public int find(int i){
         while(parent[i]!=i){
             i=parent[i];
-            System.out.print(i);
         }
         return i;
     }
 
-    public void union(int first,int second){
-        int a =find(first);
-        int b=find(second);
-        parent[a]=b;
+    void union(int a,int b){
+        int x=find(a);
+        int y=find(b);
+        parent[x]=y;
     }
 
     public void krusCall(){
         krusMST(edges);
     }
 
-    public void krusMST(int cost[][]){
+    public void krusMST(int edges[][]){
         int no_edges=0;
         int mincost=0;
-
         for(int i=0;i<V;i++){
             parent[i]=i;
-            
         }
-
         while(no_edges<V-1){
             int min=INF;
-            int a=-1;
-            int b=-1;
-
+            int a=0;
+            int b=0;
             for(int i=0;i<V;i++){
                 for(int j=0;j<V;j++){
-                    if(find(i) != find(j) && cost[i][j] < min){
-                        min =cost[i][j];
+                    if(find(i) != find(j) && edges[i][j] < min){
+                        min = edges[i][j];
                         a=i;
                         b=j;
                     }
                 }
             }
             union(a,b);
-            System.out.printf("EDGE %d(%d,%d) : weigth : %d\n",no_edges++,a,b,min);
+            System.out.printf("EDGE %d(%d,%d)  weight->%d\n",no_edges++,a,b,min);
             mincost+=min;
         }
-        System.out.println("Total minimum cost was : "+mincost);
+        System.out.println("minimum cost is "+mincost);
+
     }
         public static void main(String args[]){
         int INF=Integer.MAX_VALUE;
