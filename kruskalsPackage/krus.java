@@ -2,7 +2,7 @@ package kruskalsPackage;
 
 public class krus{
     int V=5;
-    int parent[] = new int[V];
+    int parent[]=new int[V];
 
     int find(int i){
         while(parent[i]!=i){
@@ -10,7 +10,6 @@ public class krus{
         }
         return i;
     }
-
     void union(int a,int b){
         int x=find(a);
         int y=find(b);
@@ -20,6 +19,7 @@ public class krus{
     public void kruskalMST(int cost[][]){
         int no_edges=0;
         int mincost=0;
+
         for(int i=0;i<V;i++){
             parent[i]=i;
         }
@@ -31,7 +31,7 @@ public class krus{
 
             for(int i=0;i<V;i++){
                 for(int j=0;j<V;j++){
-                    if(find(i)!=find(j) && cost[i][j] < min){
+                    if(find(i)!=find(j) && cost[i][j] <min){
                         min=cost[i][j];
                         a=i;
                         b=j;
@@ -39,15 +39,9 @@ public class krus{
                 }
             }
             union(a, b);
-            System.out.printf("EDGE %d(%d,%d)  : weight->%d\n",no_edges++,a,b,min);
+            System.out.printf("EDGE %d(%d,%d) : weight->%d\n",no_edges++,a,b,min);
             mincost+=min;
-
         }
-        System.out.println("Total was "+mincost);
-
-
-        
+        System.out.println("Total cost was : "+mincost);
     }
-
-    
 }
