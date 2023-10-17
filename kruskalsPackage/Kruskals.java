@@ -48,13 +48,6 @@ public class Kruskals {
         }        
         System.out.println("\n minimum cost = "+mincost);
     }
-    public static void main(String agrs[]){
-        int INF=Integer.MAX_VALUE;
-        int cost[][]={{INF,2,INF,6,INF},
-                      {2,INF, 3, 8, 5},
-                      {INF,3,INF,INF,7},
-                      {6,8,INF, INF, 9},
-                      {INF,5,7,9,INF}};
-        kruskalMST(cost);
-    }
+   
+   
 }
