@@ -1,7 +1,7 @@
 package binarytreepackage;
 
-public class BTreeExample {
-    public BTreeExample(){
+public class Execution {
+    public Execution(){
         BinaryTree2 s = new BinaryTree2();
         s.DisplayTree();
         System.out.println("\nTotal number of leaves in the given tree are ="+s.getLeafCount());
