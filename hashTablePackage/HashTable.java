@@ -14,7 +14,7 @@ public class HashTable {
             char ch;
             do
             {
-                lp.clearConsole();
+                lp.clrscr();
                 System.out.println("\nHash Table Operations\n");
                 System.out.println("1. insert ");
                 System.out.println("2. remove");
@@ -22,6 +22,7 @@ public class HashTable {
                 System.out.println("4. clear");
                 System.out.println("5. size");
                 System.out.println("6. print table");
+                System.out.println("7. Exit");
                 int choice = s.nextInt();
                 switch (choice) {
                 case 1:
@@ -52,6 +53,10 @@ public class HashTable {
                     System.out.println("Printing HashTable");
                     lp.printHashTable();
                     break;
+                case 7:
+                    lp.clrscr();
+                    System.out.println("Execution complete");
+                    System.exit(-1);
                 default:
                     System.out.println("Wrong Entry \n ");
                     break;

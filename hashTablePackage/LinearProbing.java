@@ -86,7 +86,7 @@ public class LinearProbing{
         currSize--;
     }
     public void printHashTable(){
-        clearConsole();
+        clrscr();
         System.out.println("\n Hash Table");
         System.out.println("KEYS  VALUES");
         for(int i=0;i<maxSize;i++){
@@ -96,18 +96,19 @@ public class LinearProbing{
         }
     
     }
-    public void clearConsole() {
-        try {
-            if (System.getProperty("os.name").contains("Windows")) {
-                // For Windows
-                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
-            } else {
-                // For Unix/Linux/macOS
-                System.out.print("\033[H\033[2J");
+    
+    public void clrscr(){
+        try{
+            if(System.getProperty("os.name").contains("Windows")){
+                new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
+            }
+            else{
+                System.out.println("\033[H\033[2J]]");
                 System.out.flush();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+
+        }catch(Exception e){
+            System.out.println(e.getMessage());
         }
     }
 }
