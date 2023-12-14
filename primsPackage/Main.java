@@ -3,7 +3,7 @@ package primsPackage;
 public class Main {
     
  public static void main(String[] args) {
-    Prims g = new Prims();
+    Prim2 g = new Prim2();
     int INF=Integer.MAX_VALUE;
     // number of vertices in grapj
     int V = 5;
@@ -14,7 +14,7 @@ public class Main {
                       {INF,3,INF,INF,7},
                       {6,8,INF, INF, 9},
                       {INF,5,7,9,INF}};
-    g.primsAlgo(V,cost);
+    g.primAlgo(cost,V);
   }
     
 }

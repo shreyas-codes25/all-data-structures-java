@@ -2,38 +2,39 @@ package primsPackage;
 
 import java.util.Arrays;
 public class Prim2 {
-    public void primAlgo(int G[][],int V){
-        int INF=Integer.MAX_VALUE;
-        int no_edge=0;
-        boolean selected[] = new boolean[V];
-        Arrays.fill(selected,false);
+   public void primAlgo(int cost[][] , int tvertex){
+    int no_edge=0;
+    int INF = Integer.MAX_VALUE;
 
-        selected[0]=true;
-        System.out.println("EDGE : WEIGHT");
+    boolean visited[] = new boolean[tvertex];
+    Arrays.fill(visited,false);
+    visited[0]= true;
 
-        while(no_edge <=V-1){
-            int min = INF;
-            int x=0;
-            int y=0;
+    System.out.println("EDGE : WEIGHT");
 
-            for(int i=0;i<V;i++){
-                if(selected[i]=true){
-                    for(int j=0;j<V;j++){
-                        if(!selected[j] && G[i][j] !=0){
-                            if(min >G[i][j]){
-                                min = G[i][j];
-                                x=1;
-                                y=1;
-                            }
+    while(no_edge < tvertex-1){
+        int min = INF;
+        int a =0;
+         int b =0;
+
+         for(int i=0;i<tvertex;i++){
+            if(visited[i]){
+                for( int j=0;j<tvertex;j++){
+                    if(!visited[j] && cost[i][j] != 0){
+                        if(cost[i][j] < min){
+                            min = cost[i][j];
+                            a = i;
+                            b = j;
                         }
                     }
                 }
             }
-            System.out.println(x+" - "+y+" : "+G[x][y]);
-            selected[y]=true;
-            no_edge++;
-        }
+         }
+         no_edge++;
+         visited[b] = true;
+         System.out.println(a+","+b+"  "+min);
     }
+   }
     
 
 }

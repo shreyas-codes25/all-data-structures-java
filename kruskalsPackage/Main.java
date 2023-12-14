@@ -9,7 +9,7 @@ public class Main {
                   {2,INF, 3, 8, 5},
                   {INF,3,INF,INF,7},
                   {6,8,INF, INF, 9},
-                  {INF,5,7,9,                               INF}};
+                  {INF,5,7,9,INF}};
     k.kruskalsMST(cost);
 }
     
